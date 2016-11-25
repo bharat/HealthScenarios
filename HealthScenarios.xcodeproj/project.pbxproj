@@ -15,6 +15,12 @@
 		4F70C1A61DE7847C006380B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F70C1A41DE7847C006380B7 /* LaunchScreen.storyboard */; };
 		4F70C1B11DE7847D006380B7 /* HealthScenariosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F70C1B01DE7847D006380B7 /* HealthScenariosTests.swift */; };
 		4F70C1BC1DE7847D006380B7 /* HealthScenariosUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F70C1BB1DE7847D006380B7 /* HealthScenariosUITests.swift */; };
+		4F70C1CC1DE786CD006380B7 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F70C1CB1DE786CD006380B7 /* HealthKit.framework */; };
+		4F70C1CF1DE797A6006380B7 /* CarbKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F70C1CE1DE797A6006380B7 /* CarbKit.framework */; };
+		4F70C1D31DE797C1006380B7 /* GlucoseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F70C1D01DE797C1006380B7 /* GlucoseKit.framework */; };
+		4F70C1D41DE797C1006380B7 /* InsulinKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F70C1D11DE797C1006380B7 /* InsulinKit.framework */; };
+		4F70C1D51DE797C1006380B7 /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F70C1D21DE797C1006380B7 /* LoopKit.framework */; };
+		4F70C1D71DE7AA65006380B7 /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F70C1D61DE7AA65006380B7 /* Easing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,13 @@
 		4F70C1B71DE7847D006380B7 /* HealthScenariosUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HealthScenariosUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F70C1BB1DE7847D006380B7 /* HealthScenariosUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthScenariosUITests.swift; sourceTree = "<group>"; };
 		4F70C1BD1DE7847D006380B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F70C1C91DE786CD006380B7 /* HealthScenarios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthScenarios.entitlements; sourceTree = "<group>"; };
+		4F70C1CB1DE786CD006380B7 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		4F70C1CE1DE797A6006380B7 /* CarbKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CarbKit.framework; path = Carthage/Build/iOS/CarbKit.framework; sourceTree = "<group>"; };
+		4F70C1D01DE797C1006380B7 /* GlucoseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GlucoseKit.framework; path = Carthage/Build/iOS/GlucoseKit.framework; sourceTree = "<group>"; };
+		4F70C1D11DE797C1006380B7 /* InsulinKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InsulinKit.framework; path = Carthage/Build/iOS/InsulinKit.framework; sourceTree = "<group>"; };
+		4F70C1D21DE797C1006380B7 /* LoopKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoopKit.framework; path = Carthage/Build/iOS/LoopKit.framework; sourceTree = "<group>"; };
+		4F70C1D61DE7AA65006380B7 /* Easing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Easing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +69,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F70C1D31DE797C1006380B7 /* GlucoseKit.framework in Frameworks */,
+				4F70C1D41DE797C1006380B7 /* InsulinKit.framework in Frameworks */,
+				4F70C1D51DE797C1006380B7 /* LoopKit.framework in Frameworks */,
+				4F70C1CF1DE797A6006380B7 /* CarbKit.framework in Frameworks */,
+				4F70C1CC1DE786CD006380B7 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +101,7 @@
 				4F70C1AF1DE7847D006380B7 /* HealthScenariosTests */,
 				4F70C1BA1DE7847D006380B7 /* HealthScenariosUITests */,
 				4F70C1961DE7847C006380B7 /* Products */,
+				4F70C1CA1DE786CD006380B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +118,7 @@
 		4F70C1971DE7847C006380B7 /* HealthScenarios */ = {
 			isa = PBXGroup;
 			children = (
+				4F70C1C91DE786CD006380B7 /* HealthScenarios.entitlements */,
 				4F70C1981DE7847C006380B7 /* AppDelegate.swift */,
 				4F70C19A1DE7847C006380B7 /* ViewController.swift */,
 				4F70C19C1DE7847C006380B7 /* Main.storyboard */,
@@ -106,6 +126,7 @@
 				4F70C1A41DE7847C006380B7 /* LaunchScreen.storyboard */,
 				4F70C1A71DE7847C006380B7 /* Info.plist */,
 				4F70C19F1DE7847C006380B7 /* HealthScenarios.xcdatamodeld */,
+				4F70C1D61DE7AA65006380B7 /* Easing.swift */,
 			);
 			path = HealthScenarios;
 			sourceTree = "<group>";
@@ -128,6 +149,18 @@
 			path = HealthScenariosUITests;
 			sourceTree = "<group>";
 		};
+		4F70C1CA1DE786CD006380B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4F70C1D01DE797C1006380B7 /* GlucoseKit.framework */,
+				4F70C1D11DE797C1006380B7 /* InsulinKit.framework */,
+				4F70C1D21DE797C1006380B7 /* LoopKit.framework */,
+				4F70C1CE1DE797A6006380B7 /* CarbKit.framework */,
+				4F70C1CB1DE786CD006380B7 /* HealthKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,6 +171,7 @@
 				4F70C1911DE7847C006380B7 /* Sources */,
 				4F70C1921DE7847C006380B7 /* Frameworks */,
 				4F70C1931DE7847C006380B7 /* Resources */,
+				4F70C1CD1DE796BC006380B7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -196,7 +230,13 @@
 				TargetAttributes = {
 					4F70C1941DE7847C006380B7 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = R6DR6B5C8B;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					4F70C1AB1DE7847D006380B7 = {
 						CreatedOnToolsVersion = 8.1;
@@ -257,6 +297,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4F70C1CD1DE796BC006380B7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/CarbKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/GlucoseKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/InsulinKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/LoopKit.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4F70C1911DE7847C006380B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -264,6 +324,7 @@
 			files = (
 				4F70C19B1DE7847C006380B7 /* ViewController.swift in Sources */,
 				4F70C1A11DE7847C006380B7 /* HealthScenarios.xcdatamodeld in Sources */,
+				4F70C1D71DE7AA65006380B7 /* Easing.swift in Sources */,
 				4F70C1991DE7847C006380B7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,10 +477,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HealthScenarios/HealthScenarios.entitlements;
+				DEVELOPMENT_TEAM = R6DR6B5C8B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HealthScenarios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.menalto.HealthScenarios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[sdk=iphonesimulator*]" = "-D IOS_SIMULATOR";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -428,6 +496,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HealthScenarios/HealthScenarios.entitlements;
+				DEVELOPMENT_TEAM = R6DR6B5C8B;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HealthScenarios/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.menalto.HealthScenarios;
