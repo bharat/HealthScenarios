@@ -6,6 +6,7 @@
 //  Copyright © 2016 Bharat Mediratta. All rights reserved.
 //
 //  Easing equations from: http://gizma.com/easing/
+//  See also: http://easings.net/
 
 import Foundation
 import Darwin

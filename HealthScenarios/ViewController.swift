@@ -10,15 +10,20 @@ import UIKit
 import HealthKit
 import CarbKit
 import GlucoseKit
+import InsulinKit
 
 class ViewController: UIViewController {
     var glucoseStore: GlucoseStore! = GlucoseStore()
+    var carbStore: CarbStore! = CarbStore()
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        #if !IOS_SIMULATOR
-        abort("You can only run this on a simulator!")
+        #if IOS_SIMULATOR
+            carbStore.authorize() { (_, _) in }
+            glucoseStore.authorize() { (_, _) in }
+        #else
+            abort("You can only run this on a simulator!")
         #endif
     }
 
@@ -55,22 +60,9 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func deleteBloodGlucoseData(_ sender: Any) {
-        let glucoseType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodGlucose)!
-
-        let predicate = HKQuery.predicateForSamples(
-            withStart: Date.distantPast,
-            end: Date.distantFuture,
-            options: [])
-
-        glucoseStore.healthStore.deleteObjects(of: glucoseType, predicate: predicate)
-        { (success, count, error) -> Void in
-            // TODO: Send this to the delegate
-        }
-    }
-    
     @IBAction func highAndFallingBloodGlucose(_ sender: Any) {
         let rawValues = jitter(
+            curve(-180, 125, -120, 110, Easing.easeInOutQuad) +
             curve(-120, 110, -60 , 210, Easing.easeInOutCubic) +
             curve(-60, 210, -5, 160, Easing.easeInSine)
         )
@@ -82,15 +74,32 @@ class ViewController: UIViewController {
                 false)
         }
         
-        deleteBloodGlucoseData(sender)
+        glucoseStore.healthStore.deleteObjects(
+            of: HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bloodGlucose)!,
+            predicate: HKQuery.predicateForSamples(withStart: Date.distantPast, end: Date.distantFuture, options: [])) {
+                (success, count, error) -> Void in
+                // ignore for now
+        }
         glucoseStore.addGlucoseValues(glucoseStoreValues, device: nil) {
             (success, _, error) in
             if error != nil {
                 self.abort((error?.localizedDescription)!)
             }
         }
-        
-        
+
+        carbStore.healthStore.deleteObjects(
+            of: HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryCarbohydrates)!,
+            predicate: HKQuery.predicateForSamples(withStart: Date.distantPast, end: Date.distantFuture, options: [])) {
+                (success, count, error) -> Void in
+                // ignore for now
+        }
+        carbStore.addCarbEntry(
+            NewCarbEntry(quantity: HKQuantity(unit: carbStore.preferredUnit, doubleValue: 50),
+                         startDate: Date().addingTimeInterval(-120 * 60),
+                         foodType: nil,
+                         absorptionTime: carbStore.defaultAbsorptionTimes.medium)) {
+            (success, _, error) in
+        }
     }
 }
 
