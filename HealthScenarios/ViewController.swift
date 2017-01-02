@@ -12,6 +12,11 @@ import CarbKit
 import GlucoseKit
 import InsulinKit
 
+struct Sample {
+    var value: Double
+    var date: Date
+}
+
 class ViewController: UIViewController {
     var glucoseStore: GlucoseStore! = GlucoseStore()
     var carbStore: CarbStore! = CarbStore()
@@ -38,25 +43,25 @@ class ViewController: UIViewController {
     func curve(_ startDelta: Int, _ startBg: Int,
                _ endDelta: Int, _ endBg: Int,
                _ easing: (Double, Double, Double, Double) -> Double)
-        -> [(Double, Date)] {
-        var results: [(Double, Date)] = []
+        -> [Sample] {
+        var results: [Sample] = []
         let duration = Double(endDelta - startDelta)
         let change = Double(endBg - startBg)
         
         for (i, delta) in (startDelta...endDelta).enumerated() where delta % 3 == 0 {
-            results += [
-                (easing(Double(i), Double(startBg), change, duration),
-                 Date().addingTimeInterval(TimeInterval(delta * 60)))
+            results += [Sample(
+                value: easing(Double(i), Double(startBg), change, duration),
+                date: Date().addingTimeInterval(TimeInterval(delta * 60)))
             ]
         }
         return results
     }
     
-    func jitter(_ data: [(Double, Date)]) -> [(Double, Date)] {
-        return data.map { amt, date in
+    func jitter(_ data: [Sample]) -> [Sample] {
+        return data.map { sample in
             // 1% jitter with multiplier between .99 to 1.01
             let delta: Double = 1.0 + (Double(arc4random_uniform(2)) - 1.0) / 100.0
-            return (amt * delta, date)
+            return Sample(value: sample.value * delta, date: sample.date)
         }
     }
 
@@ -67,10 +72,23 @@ class ViewController: UIViewController {
             curve(-60, 210, -5, 160, Easing.easeInSine)
         )
 
-        let glucoseStoreValues = rawValues.map { amt, date in
+        overwriteStoreValuesWith(rawValues)
+    }
+
+    @IBAction func lowAndRisingBloodGlucose(_ sender: Any) {
+        let rawValues = jitter(
+            curve(-180, 110, -120, 60, Easing.easeInOutQuad) +
+            curve(-120, 60, -5, 95, Easing.easeInSine)
+        )
+
+        overwriteStoreValuesWith(rawValues)
+    }
+
+    func overwriteStoreValuesWith(_ rawValues: [Sample]) {
+        let glucoseStoreValues = rawValues.map { sample in
             return (
-                HKQuantity(unit:HKUnit.milligramsPerDeciliterUnit(), doubleValue: amt),
-                date,
+                HKQuantity(unit:HKUnit.milligramsPerDeciliterUnit(), doubleValue: sample.value),
+                sample.date,
                 false)
         }
         
@@ -80,6 +98,7 @@ class ViewController: UIViewController {
                 (success, count, error) -> Void in
                 // ignore for now
         }
+
         glucoseStore.addGlucoseValues(glucoseStoreValues, device: nil) {
             (success, _, error) in
             if error != nil {
@@ -93,6 +112,7 @@ class ViewController: UIViewController {
                 (success, count, error) -> Void in
                 // ignore for now
         }
+
         carbStore.addCarbEntry(
             NewCarbEntry(quantity: HKQuantity(unit: carbStore.preferredUnit, doubleValue: 50),
                          startDate: Date().addingTimeInterval(-120 * 60),
