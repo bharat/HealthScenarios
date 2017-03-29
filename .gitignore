@@ -3,8 +3,8 @@
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 ## Build generated
-build/
-DerivedData/
+# build/
+DerivedData
 
 ## Various settings
 *.pbxuser
@@ -15,19 +15,20 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-xcuserdata/
+xcuserdata
 
 ## Other
+*.xccheckout
 *.moved-aside
 *.xcuserstate
+*.xcscmblueprint
 
 ## Obj-C/Swift specific
 *.hmap
 *.ipa
-*.dSYM.zip
-*.dSYM
 
 ## Playgrounds
+*.playground
 timeline.xctimeline
 playground.xcworkspace
 
@@ -43,12 +44,11 @@ playground.xcworkspace
 # you should judge for yourself, the pros and cons are mentioned at:
 # https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
 #
-# Pods/
+Pods/
 
 # Carthage
 #
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
-# Carthage/Checkouts
 Carthage/Checkouts/
 Carthage/Build/tvOS/
 Carthage/Build/iOS/*.bcsymbolmap
@@ -56,12 +56,17 @@ Carthage/Build/iOS/*.dSYM
 
 # fastlane
 #
-# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the 
 # screenshots whenever they are needed.
 # For more information about the recommended setup visit:
-# https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Gitignore.md
+# https://github.com/fastlane/fastlane/blob/master/docs/Gitignore.md
 
 fastlane/report.xml
-fastlane/Preview.html
 fastlane/screenshots
-fastlane/test_output
+
+# Sensitive details about remote backup
+RemoteSettings.plist
+
+# OS
+.DS_Store
+
