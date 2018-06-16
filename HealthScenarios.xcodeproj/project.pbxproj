@@ -21,6 +21,7 @@
 		4F70C1D41DE797C1006380B7 /* InsulinKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F70C1D11DE797C1006380B7 /* InsulinKit.framework */; };
 		4F70C1D51DE797C1006380B7 /* LoopKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F70C1D21DE797C1006380B7 /* LoopKit.framework */; };
 		4F70C1D71DE7AA65006380B7 /* Easing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F70C1D61DE7AA65006380B7 /* Easing.swift */; };
+		4FE3475A20D4BB0300A86D03 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3475920D4BB0300A86D03 /* HKUnit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		4F70C1D11DE797C1006380B7 /* InsulinKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = InsulinKit.framework; path = Carthage/Build/iOS/InsulinKit.framework; sourceTree = "<group>"; };
 		4F70C1D21DE797C1006380B7 /* LoopKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoopKit.framework; path = Carthage/Build/iOS/LoopKit.framework; sourceTree = "<group>"; };
 		4F70C1D61DE7AA65006380B7 /* Easing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Easing.swift; sourceTree = "<group>"; };
+		4FE3475920D4BB0300A86D03 /* HKUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKUnit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 				4F70C1A71DE7847C006380B7 /* Info.plist */,
 				4F70C19F1DE7847C006380B7 /* HealthScenarios.xcdatamodeld */,
 				4F70C1D61DE7AA65006380B7 /* Easing.swift */,
+				4FE3475920D4BB0300A86D03 /* HKUnit.swift */,
 			);
 			path = HealthScenarios;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 					4F70C1941DE7847C006380B7 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = R6DR6B5C8B;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.HealthKit = {
@@ -240,11 +244,13 @@
 					};
 					4F70C1AB1DE7847D006380B7 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 4F70C1941DE7847C006380B7;
 					};
 					4F70C1B61DE7847D006380B7 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 4F70C1941DE7847C006380B7;
 					};
@@ -322,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FE3475A20D4BB0300A86D03 /* HKUnit.swift in Sources */,
 				4F70C19B1DE7847C006380B7 /* ViewController.swift in Sources */,
 				4F70C1A11DE7847C006380B7 /* HealthScenarios.xcdatamodeld in Sources */,
 				4F70C1D71DE7AA65006380B7 /* Easing.swift in Sources */,
@@ -505,8 +512,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.menalto.HealthScenarios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[sdk=iphonesimulator*]" = "-D IOS_SIMULATOR";
-				SWIFT_VERSION = 3.0;
+				"SWIFT_ACTIVE_COMPILATION_CONDITIONS[sdk=iphonesimulator*]" = IOS_SIMULATOR;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -524,7 +532,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.menalto.HealthScenarios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -537,7 +546,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.menalto.HealthScenariosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HealthScenarios.app/HealthScenarios";
 			};
 			name = Debug;
@@ -551,7 +561,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.menalto.HealthScenariosTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HealthScenarios.app/HealthScenarios";
 			};
 			name = Release;
@@ -564,7 +575,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.menalto.HealthScenariosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = HealthScenarios;
 			};
 			name = Debug;
@@ -577,7 +589,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.menalto.HealthScenariosUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = HealthScenarios;
 			};
 			name = Release;

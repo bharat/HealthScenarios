@@ -87,7 +87,7 @@ class ViewController: UIViewController {
     func overwriteStoreValuesWith(_ rawValues: [Sample]) {
         let glucoseStoreValues = rawValues.map { sample in
             return (
-                HKQuantity(unit:HKUnit.milligramsPerDeciliterUnit(), doubleValue: sample.value),
+                HKQuantity(unit:HKUnit.milligramsPerDeciliter(), doubleValue: sample.value),
                 sample.date,
                 false)
         }
